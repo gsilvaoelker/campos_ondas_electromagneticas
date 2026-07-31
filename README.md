@@ -103,32 +103,42 @@ El despliegue es automático: cada `push` a `main` dispara el workflow
 `.github/workflows/construir-y-publicar.yml`, que instala las dependencias,
 construye el libro y lo publica.
 
-**Configuración inicial, una sola vez:**
+Para publicar un cambio basta con:
 
-1. Cree el repositorio en GitHub con el nombre
-   `campos_ondas_electromagneticas` y hágalo **público**. El repositorio debe
-   ser público para que los botones de Colab funcionen.
+```bash
+git add .
+git commit -m "Descripción del cambio"
+git push
+```
+
+La construcción tarda alrededor de un minuto. Puede seguirla con `gh run watch`
+o en la pestaña **Actions** del repositorio.
+
+**Configuración inicial — ya realizada, se documenta por si hay que rehacerla:**
+
+1. Repositorio **público** (obligatorio: si es privado, los botones de Colab
+   fallan al descargar los módulos de `src/`):
 
    ```bash
    gh repo create campos_ondas_electromagneticas --public --source=. --remote=origin
    ```
 
-2. En GitHub, vaya a **Settings → Pages** y, en *Source*, elija
-   **GitHub Actions** (no «Deploy from a branch»).
-
-3. Haga el primer envío:
+2. GitHub Pages en modo *GitHub Actions*, no «Deploy from a branch»:
 
    ```bash
-   git init
-   git add .
-   git commit -m "Sitio del curso: Unidad 1"
-   git branch -M main
-   git remote add origin https://github.com/gsilvaoelker/campos_ondas_electromagneticas.git
-   git push -u origin main
+   gh api repos/gsilvaoelker/campos_ondas_electromagneticas/pages -X POST -f build_type=workflow
    ```
 
-4. Siga el progreso en la pestaña **Actions**. La primera construcción tarda
-   unos minutos porque instala todo el entorno.
+   Equivale a **Settings → Pages → Source → GitHub Actions**. Este modo despliega
+   por artefacto y no ejecuta Jekyll, que de otro modo ignoraría la carpeta
+   `_static/` y dejaría el sitio sin CSS.
+
+3. Primer envío:
+
+   ```bash
+   git init -b main && git add . && git commit -m "Sitio del curso: Unidad 1"
+   git push -u origin main
+   ```
 
 **Si publica bajo otra cuenta o con otro nombre de repositorio**, hay que
 actualizar tres lugares:
