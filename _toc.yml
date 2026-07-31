@@ -1,5 +1,5 @@
 # Tabla de contenidos del sitio.
-# Para agregar una unidad nueva, añada un bloque `- caption:` con sus notebooks.
+# Para agregar un notebook, añádalo bajo la sección de su unidad.
 format: jb-book
 root: intro
 
@@ -18,3 +18,27 @@ parts:
           - file: unidad_01/04_continuidad_maxwell_condiciones_de_borde
           - file: unidad_01/05_repaso_prueba_1
           - file: unidad_01/06_sintesis_maxwell_y_bordes
+
+  - caption: Unidad 2 — Ondas planas y propagación
+    chapters:
+      - file: unidad_02/unidad_02
+        sections:
+          - file: unidad_02/07_fasores_y_ondas_planas
+          - file: unidad_02/08_medios_con_perdidas
+          - file: unidad_02/09_polarizacion_y_pixel_lcd
+          - file: unidad_02/10_snell_fresnel_y_brewster
+          - file: unidad_02/11_repaso_prueba_2
+
+  - caption: Unidad 3 — Líneas de transmisión, guías y antenas
+    chapters:
+      - file: unidad_03/unidad_03
+        sections:
+          - file: unidad_03/12_lineas_de_transmision
+          - file: unidad_03/13_ondas_estacionarias_y_adaptacion
+          - file: unidad_03/14_carta_de_smith_y_radiacion
+          - file: unidad_03/15_guias_de_onda_y_antenas
+          - file: unidad_03/16_repaso_prueba_3
+
+  - caption: Repaso final
+    chapters:
+      - file: repaso_final/17_repaso_integrador

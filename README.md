@@ -5,7 +5,7 @@ Universidad Mayor. Construido con [Jupyter Book](https://jupyterbook.org) y
 publicado en GitHub Pages.
 
 - **Sitio publicado:** https://gsilvaoelker.github.io/campos_ondas_electromagneticas/
-- **Cobertura actual:** Unidad 1 (semanas 1 a 6)
+- **Cobertura:** las tres unidades del curso, 17 notebooks
 
 ---
 
@@ -20,14 +20,20 @@ publicado en GitHub Pages.
 ├── intro.md                                     Página principal
 ├── uso.md                                       Instrucciones para estudiantes
 ├── src/                                         Módulos reutilizables
-│   ├── constantes_fisicas.py
-│   ├── transformaciones_coordenadas.py
-│   ├── campos_electrostaticos.py
-│   ├── medios_y_condiciones_de_borde.py
-│   └── utilidades_notebook.py
-└── unidad_01/                                   Notebooks de la Unidad 1
-    ├── unidad_01.md
-    └── 01..06_*.ipynb
+│   ├── constantes_fisicas.py                    Unidades 1, 2 y 3
+│   ├── transformaciones_coordenadas.py          Unidad 1
+│   ├── campos_electrostaticos.py                Unidades 1 y 3
+│   ├── medios_y_condiciones_de_borde.py         Unidad 1
+│   ├── ondas_planas.py                          Unidades 2 y 3
+│   ├── medios_con_perdidas.py                   Unidad 2
+│   ├── interfaces_planas.py                     Unidad 2 y repaso final
+│   ├── lineas_transmision.py                    Unidad 3 y repaso final
+│   ├── guias_y_antenas.py                       Unidad 3
+│   └── utilidades_notebook.py                   Todas
+├── unidad_01/    unidad_01.md + 01..06_*.ipynb
+├── unidad_02/    unidad_02.md + 07..11_*.ipynb
+├── unidad_03/    unidad_03.md + 12..16_*.ipynb
+└── repaso_final/ 17_repaso_integrador.ipynb
 ```
 
 ---
@@ -54,16 +60,16 @@ jupyter lab unidad_01/01_algebra_vectorial_coordenadas_gradiente.ipynb
 La celda de preparación del entorno detecta que `src/` existe localmente y no
 descarga nada. Funciona desde cualquier directorio dentro del repositorio.
 
-Para verificar que los seis notebooks se ejecutan de principio a fin:
+Para verificar que los 17 notebooks se ejecutan de principio a fin:
 
 ```bash
-python -m nbclient unidad_01/*.ipynb
+python -m nbclient unidad_0*/*.ipynb repaso_final/*.ipynb
 ```
 
 o, con más control:
 
 ```bash
-jupyter nbconvert --to notebook --execute --inplace unidad_01/*.ipynb
+jupyter nbconvert --to notebook --execute --inplace unidad_0*/*.ipynb repaso_final/*.ipynb
 ```
 
 ---
@@ -136,7 +142,7 @@ o en la pestaña **Actions** del repositorio.
 3. Primer envío:
 
    ```bash
-   git init -b main && git add . && git commit -m "Sitio del curso: Unidad 1"
+   git init -b main && git add . && git commit -m "Sitio del curso"
    git push -u origin main
    ```
 
@@ -146,7 +152,7 @@ actualizar tres lugares:
 | Archivo | Qué cambiar |
 |---|---|
 | `_config.yml` | La clave `repository.url` |
-| `unidad_01/*.ipynb` | La constante `URL_SRC` y el enlace del botón de Colab, en la primera celda de cada notebook |
+| `unidad_0*/*.ipynb`, `repaso_final/*.ipynb` | La constante `URL_SRC` y el enlace del botón de Colab, en la primera celda de cada notebook |
 | `README.md` | Los enlaces de este archivo |
 
 ---
@@ -157,7 +163,7 @@ Cada notebook comienza con un botón **Abrir en Google Colab**. El enlace tiene
 esta forma:
 
 ```
-https://colab.research.google.com/github/gsilvaoelker/campos_ondas_electromagneticas/blob/main/unidad_01/NOMBRE.ipynb
+https://colab.research.google.com/github/gsilvaoelker/campos_ondas_electromagneticas/blob/main/CARPETA/NOMBRE.ipynb
 ```
 
 En Colab, la primera celda de código no encuentra la carpeta `src/` y descarga
@@ -187,24 +193,19 @@ preinstaladas en Colab. **Los estudiantes no instalan nada.**
 
 ### 5.2 Una unidad nueva
 
-```bash
-mkdir unidad_02
-```
-
-Cree `unidad_02/unidad_02.md` con la portada de la unidad y agregue el bloque
+Cree la carpeta, escriba su portada `unidad_NN.md` y agregue el bloque
 correspondiente a `_toc.yml`:
 
 ```yaml
-  - caption: Unidad 2 — Ondas planas y propagación
+  - caption: Unidad 4 — Título de la unidad
     chapters:
-      - file: unidad_02/unidad_02
+      - file: unidad_04/unidad_04
         sections:
-          - file: unidad_02/07_fasores_ondas_sin_perdidas
-          - file: unidad_02/08_medios_con_perdidas
+          - file: unidad_04/18_primer_tema
 ```
 
-Los ejemplos fuente están en `../Ejemplos Python/semana_NN_*.py` de la carpeta
-del curso.
+Los ejemplos fuente originales están en `../Ejemplos Python/semana_NN_*.py` de la
+carpeta del curso.
 
 ### 5.3 Funciones reutilizables
 

@@ -1,75 +1,89 @@
 # Cómo usar este material
 
-## Lo mínimo que necesita saber
+## Los cuatro pasos
 
-1. Abra cualquier notebook desde el menú de la izquierda.
-2. Pulse el botón **Abrir en Google Colab** que aparece al comienzo de la página.
-3. En Colab, elija *Entorno de ejecución → Ejecutar todas* (o `Ctrl+F9`).
-4. Baje hasta la sección **5. Parámetros modificables**, cambie un valor y vuelva
-   a ejecutar.
+1. Abra un notebook desde el menú de la izquierda.
+2. Pulse **Abrir en Google Colab**, arriba de todo.
+3. En Colab: *Entorno de ejecución → Ejecutar todas* (o `Ctrl+F9`).
+4. Baje a la sección **5. Parámetros modificables**, cambie un número y ejecute
+   de nuevo.
 
-No necesita instalar Python, ni Jupyter, ni ninguna biblioteca. Solo una cuenta
-de Google y un navegador.
+No hay que instalar nada. Solo una cuenta de Google y un navegador.
 
-## Estructura de cada notebook
+## Todos los notebooks tienen la misma forma
 
-Todos los notebooks siguen el mismo orden, para que usted sepa siempre dónde
-buscar:
+Así usted siempre sabe dónde buscar.
 
-| Sección | Qué encontrará |
+| Sección | Qué hay ahí |
 |---|---|
-| 1. Objetivos de aprendizaje | Qué debería poder hacer al terminar |
-| 2. Fundamentos teóricos | De dónde salen las ecuaciones |
-| 3. Ecuaciones relevantes | El formulario del problema |
-| 4. Explicación física | Qué significan las ecuaciones |
-| **5. Parámetros modificables** | **La única celda que conviene editar** |
-| 6. Implementación del código | Cómo se traduce la física a Python |
-| 7. Resultados numéricos | Tablas con los valores obtenidos |
-| 8. Visualización | Las figuras |
-| 9. Interpretación física | Qué dicen los resultados |
-| 10. Ejercicios | Qué probar a continuación |
+| 1. Objetivos | Qué va a poder hacer al terminar |
+| 2. De dónde sale todo esto | El razonamiento detrás de las fórmulas |
+| 3. Ecuaciones | El formulario del problema |
+| 4. Qué significa físicamente | Para qué sirve cada cosa |
+| **5. Parámetros modificables** | **La única celda que conviene tocar** |
+| 6. Implementación | Cómo se pasa de la física al código |
+| 7. Resultados numéricos | Los valores, en tablas |
+| 8. Visualización | Los gráficos |
+| 9. Qué nos dicen los resultados | Cómo leer lo que salió |
+| 10. Ejercicios | Qué probar después |
 
-## La celda de preparación del entorno
+## Cómo sacarle provecho
 
-La primera celda de código de cada notebook detecta si usted está en Colab y, de
-ser así, descarga los módulos del curso desde GitHub. Esa celda debe ejecutarse
-antes que las demás; si usa *Ejecutar todas*, se resuelve sola.
+**Prediga antes de ejecutar.** Cuando un ejercicio le pide cambiar un parámetro,
+escriba primero qué cree que va a pasar. Después ejecute. Cuando se equivoque,
+ahí aprendió algo.
 
-Si aparece un error de red al ejecutarla, revise su conexión y vuelva a
-ejecutarla. Todas las demás dependencias ya están en Colab.
+**Cambie un parámetro a la vez.** Si cambia tres, no va a saber cuál causó qué.
 
-## Los módulos del curso
+**Use los notebooks para revisar sus desarrollos.** Resuelva el problema a mano,
+después ejecute y compare. Los resultados numéricos son los mismos que los del
+problema hecho en clase.
 
-Las funciones que se repiten entre semanas viven en la carpeta `src/` del
-repositorio, no dentro de los notebooks:
+**Si algo no cuadra, sospeche de sus unidades.** Es el error más frecuente:
+metros contra centímetros, grados contra radianes.
 
-| Módulo | Contenido |
+## La primera celda de código
+
+Cada notebook empieza con una celda de preparación. Detecta si usted está en
+Colab y, si es así, descarga los módulos del curso. Debe ejecutarse antes que las
+demás; si usa *Ejecutar todas*, se resuelve sola.
+
+## Las funciones del curso
+
+Las fórmulas que se repiten entre semanas no están escritas dentro de cada
+notebook, sino en una carpeta `src/` común:
+
+| Módulo | Qué contiene |
 |---|---|
 | `constantes_fisicas.py` | $\varepsilon_0$, $\mu_0$, $c$, $\eta_0$, carga elemental |
-| `transformaciones_coordenadas.py` | Cambios de base entre sistemas coordenados |
-| `campos_electrostaticos.py` | Esfera cargada, condensador, línea coaxial, energías |
-| `medios_y_condiciones_de_borde.py` | Relajación de carga, condiciones de borde |
+| `transformaciones_coordenadas.py` | Cambios entre sistemas de coordenadas |
+| `campos_electrostaticos.py` | Esfera cargada, condensador, coaxial, energías |
+| `medios_y_condiciones_de_borde.py` | Relajación de carga y condiciones de borde |
+| `ondas_planas.py` | $\beta$, $\lambda$, $\eta$ y campos en medios sin pérdidas |
+| `medios_con_perdidas.py` | Atenuación, efecto pelicular y potencia |
+| `interfaces_planas.py` | Snell, Fresnel, ángulos crítico y de Brewster |
+| `lineas_transmision.py` | Reflexión, ROE, impedancia de entrada, adaptación |
+| `guias_y_antenas.py` | Frecuencias de corte, eficiencia y ganancia |
 | `utilidades_notebook.py` | Estilo de las figuras y formato de las tablas |
 
-Así, cuando la semana 5 vuelve a usar el campo de la esfera cargada de la semana
-2, es literalmente el mismo código: los resultados no pueden discrepar.
+Esto tiene una ventaja concreta para usted: cuando la semana 12 vuelve a usar el
+coaxial de la semana 3, es literalmente el mismo código. Los resultados no pueden
+contradecirse.
 
 ## Guardar sus cambios
 
-Colab **no guarda** sus modificaciones en este sitio. Si quiere conservarlas, use
-*Archivo → Guardar una copia en Drive* antes de empezar a editar.
+Colab **no guarda** lo que usted modifique. Si quiere conservarlo, use
+*Archivo → Guardar una copia en Drive* antes de empezar.
 
-## Sobre el separador decimal
+## Punto decimal
 
-Todo el material usa **punto** como separador decimal, siguiendo la convención
-de Python y de la literatura técnica: `0.5`, no `0,5`.
+Todo el material usa **punto**, como Python: `0.5`, no `0,5`.
 
-## Si algo no funciona
+## Si algo falla
 
-- **Una figura no aparece:** ejecute las celdas en orden desde el principio.
-- **`NameError` con un parámetro:** ejecutó una celda sin haber ejecutado antes
-  la sección 5.
-- **`ModuleNotFoundError`:** falló la celda de preparación del entorno;
-  ejecútela de nuevo.
-- **Cualquier otra cosa:** *Entorno de ejecución → Reiniciar y ejecutar todas*
-  resuelve la mayoría de los problemas.
+| Problema | Solución |
+|---|---|
+| No aparece una figura | Ejecute las celdas en orden desde el principio |
+| `NameError` con un parámetro | Le faltó ejecutar la sección 5 |
+| `ModuleNotFoundError` | Vuelva a ejecutar la primera celda de código |
+| Cualquier otra cosa | *Entorno de ejecución → Reiniciar y ejecutar todas* |
