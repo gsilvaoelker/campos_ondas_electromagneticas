@@ -3,7 +3,6 @@
 
 title: Campos y Ondas Electromagnéticas
 author: Gerardo Silva-Oelker — Universidad Mayor
-copyright: "2026"
 only_build_toc_files: true
 
 execute:
@@ -38,7 +37,7 @@ html:
 sphinx:
   config:
     language: es
-    html_show_copyright: true
+    html_show_copyright: false
     mathjax3_config:
       tex:
         macros:
