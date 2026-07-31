@@ -1,0 +1,49 @@
+# Configuración de Jupyter Book
+# Documentación: https://jupyterbook.org/customize/config.html
+
+title: Campos y Ondas Electromagnéticas
+author: Gerardo Silva-Oelker — Universidad Mayor
+copyright: "2026"
+only_build_toc_files: true
+
+execute:
+  # Los notebooks se ejecutan en cada construcción, de modo que el sitio
+  # publicado siempre muestre resultados reproducibles.
+  execute_notebooks: force
+  timeout: 300
+
+parse:
+  myst_enable_extensions:
+    - amsmath      # entornos align, aligned, cases
+    - dollarmath   # $...$ y $$...$$
+    - colon_fence
+    - deflist
+
+repository:
+  url: https://github.com/gsilvaoelker/campos_ondas_electromagneticas
+  # El libro vive en la raíz del repositorio, por lo que `path_to_book` se omite:
+  # dejarlo en "." produciría enlaces del tipo .../blob/main/./unidad_01/...
+  branch: main
+
+launch_buttons:
+  colab_url: https://colab.research.google.com
+  notebook_interface: classic
+
+html:
+  use_issues_button: false
+  use_repository_button: true
+  use_edit_page_button: false
+  home_page_in_navbar: true
+
+sphinx:
+  config:
+    language: es
+    html_show_copyright: true
+    mathjax3_config:
+      tex:
+        macros:
+          Ev: "\\mathbf{E}"
+          Hv: "\\mathbf{H}"
+          Dv: "\\mathbf{D}"
+          Bv: "\\mathbf{B}"
+          Jv: "\\mathbf{J}"

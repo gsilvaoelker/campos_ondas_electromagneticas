@@ -1,0 +1,15 @@
+# Dependencias del sitio del curso.
+#
+# Los estudiantes NO necesitan instalar nada: NumPy, SciPy, Matplotlib, SymPy y
+# pandas vienen preinstalados en Google Colab. Este archivo lo usan la
+# construcción local del libro y el workflow de GitHub Actions.
+#
+# jupyter-book 2.x es una herramienta distinta que no lee _config.yml ni
+# _toc.yml, por lo que la versión queda acotada a la serie 1.x.
+
+jupyter-book>=1.0.3,<2.0
+numpy>=1.24
+scipy>=1.10
+matplotlib>=3.7
+sympy>=1.12
+pandas>=2.0

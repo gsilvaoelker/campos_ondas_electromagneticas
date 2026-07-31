@@ -1,0 +1,20 @@
+# Tabla de contenidos del sitio.
+# Para agregar una unidad nueva, añada un bloque `- caption:` con sus notebooks.
+format: jb-book
+root: intro
+
+parts:
+  - caption: Cómo usar este material
+    chapters:
+      - file: uso
+
+  - caption: Unidad 1 — Campos estáticos y ecuaciones de Maxwell
+    chapters:
+      - file: unidad_01/unidad_01
+        sections:
+          - file: unidad_01/01_algebra_vectorial_coordenadas_gradiente
+          - file: unidad_01/02_gauss_stokes_campos_y_fuentes
+          - file: unidad_01/03_capacitancia_inductancia_energia
+          - file: unidad_01/04_continuidad_maxwell_condiciones_de_borde
+          - file: unidad_01/05_repaso_prueba_1
+          - file: unidad_01/06_sintesis_maxwell_y_bordes
