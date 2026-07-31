@@ -23,22 +23,39 @@ def frecuencia_de_corte(ancho, alto, m, n, velocidad=VELOCIDAD_LUZ):
     return velocidad / 2.0 * np.sqrt(termino_m + termino_n)
 
 
+def se_propaga(frecuencia, frecuencia_corte):
+    """¿Se propaga el modo a esta frecuencia? Solo si f > f_c."""
+    return np.asarray(frecuencia) > np.asarray(frecuencia_corte)
+
+
+def factor_de_propagacion(frecuencia, frecuencia_corte):
+    """sqrt(1 - (fc/f)^2), el factor que aparece en toda la teoría de guías.
+
+    Vale 1 muy por encima del corte y tiende a 0 al acercarse a él. Por debajo
+    del corte no está definido —el modo es evanescente, no viaja— y se devuelve
+    `nan` sin emitir advertencias.
+    """
+    razon = np.asarray(frecuencia_corte, dtype=float) / np.asarray(frecuencia, dtype=float)
+    with np.errstate(invalid="ignore"):
+        return np.sqrt(np.where(razon < 1.0, 1.0 - razon**2, np.nan))
+
+
 def longitud_onda_guia(frecuencia, frecuencia_corte, velocidad=VELOCIDAD_LUZ):
     """Longitud de onda dentro de la guía [m]: lambda_g = lambda_0 / sqrt(1 - (fc/f)^2).
 
-    Siempre es mayor que en el espacio libre.
+    Siempre es mayor que en el espacio libre. Por debajo del corte devuelve `nan`.
     """
-    return (velocidad / frecuencia) / np.sqrt(1.0 - (frecuencia_corte / frecuencia) ** 2)
+    return (velocidad / frecuencia) / factor_de_propagacion(frecuencia, frecuencia_corte)
 
 
 def velocidad_fase_guia(frecuencia, frecuencia_corte, velocidad=VELOCIDAD_LUZ):
     """Velocidad de fase en la guía [m/s]. Es mayor que c, pero no transporta información."""
-    return velocidad / np.sqrt(1.0 - (frecuencia_corte / frecuencia) ** 2)
+    return velocidad / factor_de_propagacion(frecuencia, frecuencia_corte)
 
 
 def velocidad_grupo_guia(frecuencia, frecuencia_corte, velocidad=VELOCIDAD_LUZ):
     """Velocidad de grupo en la guía [m/s]: la que sí lleva la energía. Siempre menor que c."""
-    return velocidad * np.sqrt(1.0 - (frecuencia_corte / frecuencia) ** 2)
+    return velocidad * factor_de_propagacion(frecuencia, frecuencia_corte)
 
 
 # --------------------------------------------------------------------------

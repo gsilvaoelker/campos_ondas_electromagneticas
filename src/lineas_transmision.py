@@ -22,10 +22,15 @@ def coeficiente_reflexion(impedancia_carga, impedancia_caracteristica):
 def razon_onda_estacionaria(coeficiente):
     """ROE = (1 + |Gamma|) / (1 - |Gamma|), adimensional.
 
-    Vale 1 con adaptación perfecta y tiende a infinito con reflexión total.
+    Vale 1 con adaptación perfecta. Con reflexión total —cortocircuito, circuito
+    abierto o cualquier carga puramente reactiva— se tiene |Gamma| = 1 y la ROE
+    es infinita: se devuelve `inf` en vez de fallar, porque ése es el valor
+    correcto y es un caso que aparece a menudo.
     """
-    modulo = abs(coeficiente)
-    return (1.0 + modulo) / (1.0 - modulo)
+    modulo = np.abs(coeficiente)
+    with np.errstate(divide="ignore", invalid="ignore"):
+        resultado = np.where(modulo >= 1.0, np.inf, (1.0 + modulo) / (1.0 - modulo))
+    return resultado if np.ndim(coeficiente) else float(resultado)
 
 
 def impedancia_entrada(impedancia_carga, impedancia_caracteristica, beta_por_longitud):
