@@ -1,0 +1,28 @@
+DUAL-LICENSE NOTICE
+
+Copyright (c) 2026 Gerardo Silva Oelker
+
+Unless a file states otherwise, this repository is licensed as follows:
+
+1. Code — MIT License
+
+   Source code is licensed under the MIT License. This includes Python modules,
+   code cells in Jupyter notebooks, tests, scripts, workflows, and configuration
+   files. See LICENSE-CODE for the complete terms.
+
+2. Educational content — Creative Commons Attribution 4.0 International
+
+   Educational content is licensed under CC BY 4.0. This includes explanatory
+   prose and exercises in Markdown files and notebook Markdown cells, as well as
+   original figures, diagrams, and rendered instructional outputs. See
+   LICENSE-CONTENT for the license notice and canonical legal-code link.
+
+3. Mixed Jupyter notebooks
+
+   In .ipynb files, code cells are covered by the MIT License. Markdown cells
+   and original instructional outputs are covered by CC BY 4.0.
+
+4. Exclusions
+
+   Third-party software, trademarks, logos, fonts, and other third-party assets
+   remain subject to their own licenses and are not relicensed by this notice.

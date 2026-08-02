@@ -1,7 +1,8 @@
-"""Constantes físicas del curso Campos y Ondas Electromagnéticas.
+"""Constantes físicas usadas en Campos y Ondas Electromagnéticas.
 
-Valores CODATA. Se definen una sola vez para todo el curso, de modo que los
-resultados numéricos de todos los notebooks sean reproducibles entre sí.
+Se fijan explícitamente para que todos los notebooks usen los mismos valores.
+La precisión es más que suficiente para los ejercicios del curso; no se
+presentan como una tabla metrológica actualizada de CODATA.
 """
 import numpy as np
 

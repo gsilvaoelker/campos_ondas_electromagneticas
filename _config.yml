@@ -3,7 +3,12 @@
 
 title: Campos y Ondas Electromagnéticas
 author: Gerardo Silva-Oelker — Universidad Mayor
+copyright: "2026"
 only_build_toc_files: true
+exclude_patterns:
+  - .pytest_cache/**
+  - tests/**
+  - scripts/**
 
 execute:
   # Los notebooks se ejecutan en cada construcción, de modo que el sitio
@@ -24,15 +29,19 @@ repository:
   # dejarlo en "." produciría enlaces del tipo .../blob/main/./unidad_01/...
   branch: main
 
-launch_buttons:
-  colab_url: https://colab.research.google.com
-  notebook_interface: classic
-
 html:
   use_issues_button: false
   use_repository_button: true
   use_edit_page_button: false
   home_page_in_navbar: true
+  extra_footer: |
+    <p>ICEE1033 — Campos y Ondas Electromagnéticas · Universidad Mayor · Semestre 2026-2</p>
+    <p>Código: <a href="https://github.com/gsilvaoelker/campos_ondas_electromagneticas/blob/main/LICENSE-CODE">MIT</a> · Contenido educativo: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
+
+launch_buttons:
+  colab_url: https://colab.research.google.com
+  notebook_interface: classic
+  thebe: false
 
 sphinx:
   config:

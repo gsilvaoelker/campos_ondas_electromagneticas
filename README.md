@@ -1,230 +1,116 @@
-# Campos y Ondas Electromagnéticas — sitio del curso
+# Campos y Ondas Electromagnéticas
 
-Material computacional del curso **ICEE1033**, Escuela de Ingeniería,
-Universidad Mayor. Construido con [Jupyter Book](https://jupyterbook.org) y
-publicado en GitHub Pages.
+Notebooks de **ICEE1033**, Universidad Mayor.
 
-- **Sitio publicado:** https://gsilvaoelker.github.io/campos_ondas_electromagneticas/
-- **Cobertura:** las tres unidades del curso, 17 notebooks
+### Sitio del curso: <https://gsilvaoelker.github.io/campos_ondas_electromagneticas/>
 
 ---
 
-## Contenido del repositorio
+## Empiece aquí
 
-```
-.
-├── .github/workflows/construir-y-publicar.yml   Build + despliegue automático
-├── _config.yml                                  Configuración de Jupyter Book
-├── _toc.yml                                     Tabla de contenidos
-├── requirements.txt                             Dependencias
-├── intro.md                                     Página principal
-├── uso.md                                       Instrucciones para estudiantes
-├── src/                                         Módulos reutilizables
-│   ├── constantes_fisicas.py                    Unidades 1, 2 y 3
-│   ├── transformaciones_coordenadas.py          Unidad 1
-│   ├── campos_electrostaticos.py                Unidades 1 y 3
-│   ├── medios_y_condiciones_de_borde.py         Unidad 1
-│   ├── ondas_planas.py                          Unidades 2 y 3
-│   ├── medios_con_perdidas.py                   Unidad 2
-│   ├── interfaces_planas.py                     Unidad 2 y repaso final
-│   ├── lineas_transmision.py                    Unidad 3 y repaso final
-│   ├── guias_y_antenas.py                       Unidad 3
-│   └── utilidades_notebook.py                   Todas
-├── unidad_01/    unidad_01.md + 01..06_*.ipynb
-├── unidad_02/    unidad_02.md + 07..11_*.ipynb
-├── unidad_03/    unidad_03.md + 12..16_*.ipynb
-└── repaso_final/ 17_repaso_integrador.ipynb
-```
+**No necesita instalar nada.** Cada notebook combina formulación, código,
+resultados, figuras y ejercicios. Ábralo en Google Colab con una cuenta de
+Google, ejecute todo y cambie un parámetro a la vez.
+
+### Unidad 1 — Campos estáticos y ecuaciones de Maxwell
+
+| Semana | Tema | Abrir |
+|---|---|---|
+| 1 | Álgebra vectorial, coordenadas y gradiente | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/gsilvaoelker/campos_ondas_electromagneticas/blob/main/unidad_01/01_algebra_vectorial_coordenadas_gradiente.ipynb) |
+| 2 | Gauss, Stokes, campos y fuentes | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/gsilvaoelker/campos_ondas_electromagneticas/blob/main/unidad_01/02_gauss_stokes_campos_y_fuentes.ipynb) |
+| 3 | Capacitancia, inductancia y energía | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/gsilvaoelker/campos_ondas_electromagneticas/blob/main/unidad_01/03_capacitancia_inductancia_energia.ipynb) |
+| 4 | Continuidad, Maxwell y condiciones de borde | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/gsilvaoelker/campos_ondas_electromagneticas/blob/main/unidad_01/04_continuidad_maxwell_condiciones_de_borde.ipynb) |
+| 5 | Repaso de la Prueba 1 | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/gsilvaoelker/campos_ondas_electromagneticas/blob/main/unidad_01/05_repaso_prueba_1.ipynb) |
+| 6 | Síntesis de Maxwell y bordes | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/gsilvaoelker/campos_ondas_electromagneticas/blob/main/unidad_01/06_sintesis_maxwell_y_bordes.ipynb) |
+
+### Unidad 2 — Ondas planas y propagación
+
+| Semana | Tema | Abrir |
+|---|---|---|
+| 7 | Fasores y ondas planas | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/gsilvaoelker/campos_ondas_electromagneticas/blob/main/unidad_02/07_fasores_y_ondas_planas.ipynb) |
+| 8 | Medios con pérdidas | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/gsilvaoelker/campos_ondas_electromagneticas/blob/main/unidad_02/08_medios_con_perdidas.ipynb) |
+| 9 | Polarización y modelo ideal de un píxel LCD | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/gsilvaoelker/campos_ondas_electromagneticas/blob/main/unidad_02/09_polarizacion_y_pixel_lcd.ipynb) |
+| 10 | Snell, Fresnel y Brewster | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/gsilvaoelker/campos_ondas_electromagneticas/blob/main/unidad_02/10_snell_fresnel_y_brewster.ipynb) |
+| 11 | Repaso de la Prueba 2 | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/gsilvaoelker/campos_ondas_electromagneticas/blob/main/unidad_02/11_repaso_prueba_2.ipynb) |
+
+### Unidad 3 — Líneas de transmisión, guías y antenas
+
+| Semana | Tema | Abrir |
+|---|---|---|
+| 12 | Líneas de transmisión | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/gsilvaoelker/campos_ondas_electromagneticas/blob/main/unidad_03/12_lineas_de_transmision.ipynb) |
+| 13 | Ondas estacionarias y adaptación | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/gsilvaoelker/campos_ondas_electromagneticas/blob/main/unidad_03/13_ondas_estacionarias_y_adaptacion.ipynb) |
+| 14 | Carta de Smith y radiación | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/gsilvaoelker/campos_ondas_electromagneticas/blob/main/unidad_03/14_carta_de_smith_y_radiacion.ipynb) |
+| 15 | Guías de onda y antenas | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/gsilvaoelker/campos_ondas_electromagneticas/blob/main/unidad_03/15_guias_de_onda_y_antenas.ipynb) |
+| 16 | Repaso de la Prueba 3 | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/gsilvaoelker/campos_ondas_electromagneticas/blob/main/unidad_03/16_repaso_prueba_3.ipynb) |
+
+### Repaso final
+
+| Material | Tema | Abrir |
+|---|---|---|
+| Repaso integrador | Un problema de cada unidad y sus conexiones | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/gsilvaoelker/campos_ondas_electromagneticas/blob/main/repaso_final/17_repaso_integrador.ipynb) |
+
+Colab crea una sesión aislada. Sus cambios no afectan el repositorio y no se
+guardan automáticamente. Para conservarlos, use **Archivo → Guardar una copia
+en Drive**.
+
+## Cómo trabajar un notebook
+
+1. Ejecute **Entorno de ejecución → Ejecutar todas**.
+2. Busque la sección **5. Parámetros modificables**.
+3. Prediga qué debería ocurrir.
+4. Cambie un solo valor y ejecute todo de nuevo.
+5. Contraste el resultado con las ecuaciones y responda los ejercicios.
+
+Los módulos del curso se descargan en Colab solo después de verificar su hash
+SHA256. Esto fija el código docente exacto; no fija las versiones de NumPy,
+SciPy, Matplotlib, SymPy o pandas que Google tenga instaladas.
+
+## Licencias
+
+- El código, incluidas las celdas de código de los notebooks, usa la
+  [licencia MIT](LICENSE-CODE).
+- Los textos, ejercicios, figuras y demás contenido educativo original usan
+  [Creative Commons Atribución 4.0 Internacional](LICENSE-CONTENT).
+- La delimitación de archivos mixtos y las exclusiones están en
+  [LICENSE](LICENSE).
 
 ---
 
-## 1. Ejecutar el proyecto localmente
+<details>
+<summary><b>Para el equipo docente: validar, construir y publicar</b></summary>
 
-Requiere Python 3.11 o superior.
+### Entorno local reproducible
 
-```bash
+Requiere Python 3.11.
+
+~~~
 git clone https://github.com/gsilvaoelker/campos_ondas_electromagneticas.git
 cd campos_ondas_electromagneticas
-
 python3 -m venv .venv
-source .venv/bin/activate        # en Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-```
+source .venv/bin/activate
+python -m pip install -r requirements-lock.txt
+~~~
 
-Para abrir un notebook y trabajar en él:
+### Pruebas y construcción
 
-```bash
-jupyter lab unidad_01/01_algebra_vectorial_coordenadas_gradiente.ipynb
-```
+~~~
+python -m pytest -q
+jupyter-book build . --warningiserror
+python scripts/postprocess_html.py _build/html
+python scripts/validate_site.py _build/html
+~~~
 
-La celda de preparación del entorno detecta que `src/` existe localmente y no
-descarga nada. Funciona desde cualquier directorio dentro del repositorio.
+Los 17 notebooks se ejecutan desde cero en cada construcción. Si cambia un
+módulo de <code>src/</code>, actualice los hashes antes de validar:
 
-Para verificar que los 17 notebooks se ejecutan de principio a fin:
+~~~
+python scripts/refresh_notebook_hashes.py
+~~~
 
-```bash
-python -m nbclient unidad_0*/*.ipynb repaso_final/*.ipynb
-```
+### Publicación
 
-o, con más control:
+Cada envío a <code>main</code> ejecuta
+<code>.github/workflows/construir-y-publicar.yml</code>. El workflow prueba,
+construye, valida y publica el artefacto en GitHub Pages.
 
-```bash
-jupyter nbconvert --to notebook --execute --inplace unidad_0*/*.ipynb repaso_final/*.ipynb
-```
-
----
-
-## 2. Construir Jupyter Book
-
-```bash
-jupyter-book build .
-```
-
-El sitio queda en `_build/html/index.html`. Ábralo con:
-
-```bash
-open _build/html/index.html          # macOS
-xdg-open _build/html/index.html      # Linux
-```
-
-`_config.yml` usa `execute_notebooks: force`, de modo que **cada construcción
-vuelve a ejecutar los notebooks**. Es lento pero garantiza que el sitio publicado
-nunca muestre resultados obsoletos.
-
-Si necesita una construcción rápida sin ejecutar, cambie temporalmente esa opción
-a `off`.
-
-Para partir de cero después de un error de construcción:
-
-```bash
-jupyter-book clean . --all
-jupyter-book build .
-```
-
----
-
-## 3. Publicar en GitHub Pages
-
-El despliegue es automático: cada `push` a `main` dispara el workflow
-`.github/workflows/construir-y-publicar.yml`, que instala las dependencias,
-construye el libro y lo publica.
-
-Para publicar un cambio basta con:
-
-```bash
-git add .
-git commit -m "Descripción del cambio"
-git push
-```
-
-La construcción tarda alrededor de un minuto. Puede seguirla con `gh run watch`
-o en la pestaña **Actions** del repositorio.
-
-**Configuración inicial — ya realizada, se documenta por si hay que rehacerla:**
-
-1. Repositorio **público** (obligatorio: si es privado, los botones de Colab
-   fallan al descargar los módulos de `src/`):
-
-   ```bash
-   gh repo create campos_ondas_electromagneticas --public --source=. --remote=origin
-   ```
-
-2. GitHub Pages en modo *GitHub Actions*, no «Deploy from a branch»:
-
-   ```bash
-   gh api repos/gsilvaoelker/campos_ondas_electromagneticas/pages -X POST -f build_type=workflow
-   ```
-
-   Equivale a **Settings → Pages → Source → GitHub Actions**. Este modo despliega
-   por artefacto y no ejecuta Jekyll, que de otro modo ignoraría la carpeta
-   `_static/` y dejaría el sitio sin CSS.
-
-3. Primer envío:
-
-   ```bash
-   git init -b main && git add . && git commit -m "Sitio del curso"
-   git push -u origin main
-   ```
-
-**Si publica bajo otra cuenta o con otro nombre de repositorio**, hay que
-actualizar tres lugares:
-
-| Archivo | Qué cambiar |
-|---|---|
-| `_config.yml` | La clave `repository.url` |
-| `unidad_0*/*.ipynb`, `repaso_final/*.ipynb` | La constante `URL_SRC` y el enlace del botón de Colab, en la primera celda de cada notebook |
-| `README.md` | Los enlaces de este archivo |
-
----
-
-## 4. Abrir los notebooks en Google Colab
-
-Cada notebook comienza con un botón **Abrir en Google Colab**. El enlace tiene
-esta forma:
-
-```
-https://colab.research.google.com/github/gsilvaoelker/campos_ondas_electromagneticas/blob/main/CARPETA/NOMBRE.ipynb
-```
-
-En Colab, la primera celda de código no encuentra la carpeta `src/` y descarga
-los módulos necesarios desde
-`https://raw.githubusercontent.com/.../main/src/`. Por eso el repositorio debe
-ser **público** y el archivo debe estar ya en `main`.
-
-Las demás dependencias —NumPy, SciPy, Matplotlib, SymPy y pandas— vienen
-preinstaladas en Colab. **Los estudiantes no instalan nada.**
-
----
-
-## 5. Agregar nuevos ejemplos
-
-### 5.1 Un notebook nuevo en una unidad existente
-
-1. Copie un notebook existente como plantilla y renómbrelo siguiendo el patrón
-   `NN_tema_descriptivo.ipynb`.
-2. Actualice la URL del botón de Colab en la primera celda (el nombre del
-   archivo).
-3. Actualice la lista `MODULOS` de la celda de preparación con los módulos que
-   ese notebook necesite.
-4. Respete las diez secciones numeradas; son la razón de que los estudiantes
-   sepan siempre dónde buscar.
-5. Agregue el archivo a `_toc.yml`, bajo la sección de su unidad.
-6. Ejecútelo de principio a fin en un entorno limpio antes de hacer `push`.
-
-### 5.2 Una unidad nueva
-
-Cree la carpeta, escriba su portada `unidad_NN.md` y agregue el bloque
-correspondiente a `_toc.yml`:
-
-```yaml
-  - caption: Unidad 4 — Título de la unidad
-    chapters:
-      - file: unidad_04/unidad_04
-        sections:
-          - file: unidad_04/18_primer_tema
-```
-
-Los ejemplos fuente originales están en `../Ejemplos Python/semana_NN_*.py` de la
-carpeta del curso.
-
-### 5.3 Funciones reutilizables
-
-Si una función se usa en **dos o más** notebooks, extráigala a `src/` en un
-módulo nombrado por tema —no por semana— y añádala a la lista `MODULOS` de los
-notebooks que la usen. Los módulos de `src/` no deben importarse entre sí más
-allá de `constantes_fisicas`, para que la descarga en Colab siga siendo simple.
-
----
-
-## Convenciones
-
-- **Punto** como separador decimal en todo el material: `0.5`, nunca `0,5`.
-- Nombres de variables, funciones y archivos **en español**, descriptivos.
-- Solo NumPy, SciPy, Matplotlib, SymPy y pandas. Sin dependencias exóticas.
-- Una sola celda de parámetros por notebook, en la sección 5, claramente rotulada.
-- Las constantes físicas viven únicamente en `src/constantes_fisicas.py`.
-
-## Licencia y créditos
-
-Material docente de Gerardo Silva-Oelker, Universidad Mayor, 2026.
-Texto guía: Ulaby & Ravaioli, *Fundamentals of Applied Electromagnetics*, 7.ª ed.
+</details>

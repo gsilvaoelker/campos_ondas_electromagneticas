@@ -5,6 +5,11 @@ Se usa en las semanas 10, 11 y 17.
 import numpy as np
 
 
+def _validar_indices(n1, n2):
+    if n1 <= 0.0 or n2 <= 0.0:
+        raise ValueError("Los índices de refracción deben ser positivos.")
+
+
 # --------------------------------------------------------------------------
 # Incidencia normal
 # --------------------------------------------------------------------------
@@ -14,6 +19,7 @@ def coeficiente_reflexion_normal(n1, n2):
     Es negativo cuando la onda entra a un medio más denso: la onda reflejada
     sale invertida.
     """
+    _validar_indices(n1, n2)
     return (n1 - n2) / (n1 + n2)
 
 
@@ -43,6 +49,7 @@ def coeficientes_fresnel(n1, n2, angulo_incidencia):
     pueda volverse imaginario más allá del ángulo crítico, que es lo que
     describe la reflexión interna total.
     """
+    _validar_indices(n1, n2)
     seno_t = n1 / n2 * np.sin(angulo_incidencia)
     coseno_t = np.emath.sqrt(1.0 - seno_t**2)
     coseno_i = np.cos(angulo_incidencia)
@@ -52,13 +59,15 @@ def coeficientes_fresnel(n1, n2, angulo_incidencia):
 
 
 def angulo_transmitido(n1, n2, angulo_incidencia):
-    """Ángulo de refracción [rad] según la ley de Snell: n1 sin(t_i) = n2 sin(t_t)."""
-    return np.arcsin(n1 / n2 * np.sin(angulo_incidencia))
+    """Ángulo de Snell [rad]; es complejo bajo reflexión interna total."""
+    _validar_indices(n1, n2)
+    return np.emath.arcsin(n1 / n2 * np.sin(angulo_incidencia))
 
 
 def angulo_critico(n1, n2):
-    """Ángulo crítico [rad]: sin(theta_c) = n2/n1. Solo existe si n1 > n2."""
-    return np.arcsin(n2 / n1)
+    """Ángulo crítico [rad], o ``nan`` cuando no existe (n1 <= n2)."""
+    _validar_indices(n1, n2)
+    return np.arcsin(n2 / n1) if n1 > n2 else np.nan
 
 
 def angulo_brewster(n1, n2):
@@ -66,4 +75,5 @@ def angulo_brewster(n1, n2):
 
     Es el ángulo en que la polarización paralela no se refleja en absoluto.
     """
+    _validar_indices(n1, n2)
     return np.arctan(n2 / n1)

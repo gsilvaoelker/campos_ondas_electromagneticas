@@ -18,7 +18,7 @@ def carga_total_esfera_uniforme(radio, densidad_carga):
 
 
 def densidad_flujo_esfera_uniforme(r, radio, densidad_carga):
-    """Magnitud de D [C/m^2] a la distancia radial `r` [m].
+    """Componente radial de D [C/m^2] a la distancia `r` [m].
 
     Ley de Gauss sobre una superficie esférica de radio r:
         r <  a:  D = rho_v * r / 3
@@ -26,15 +26,22 @@ def densidad_flujo_esfera_uniforme(r, radio, densidad_carga):
     """
     r = np.asarray(r, dtype=float)
     carga_total = carga_total_esfera_uniforme(radio, densidad_carga)
+    exterior = np.zeros_like(r, dtype=float)
+    np.divide(
+        carga_total,
+        4.0 * np.pi * r**2,
+        out=exterior,
+        where=r != 0.0,
+    )
     return np.where(
         r < radio,
         densidad_carga * r / 3.0,
-        carga_total / (4.0 * np.pi * r**2),
+        exterior,
     )
 
 
 def campo_esfera_uniforme(r, radio, densidad_carga, permitividad=EPSILON_0):
-    """Magnitud de E [V/m] a la distancia radial `r` [m], con E = D / epsilon."""
+    """Componente radial de E [V/m] a la distancia `r` [m], con E = D / epsilon."""
     return densidad_flujo_esfera_uniforme(r, radio, densidad_carga) / permitividad
 
 

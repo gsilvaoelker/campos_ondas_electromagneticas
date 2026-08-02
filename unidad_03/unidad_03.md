@@ -61,5 +61,8 @@ $$
 \Gamma = \frac{Z_L - Z_0}{Z_L + Z_0},
 $$
 
-es la misma fórmula que la de una interfaz óptica de la semana 10 con $n$ en
-lugar de $Z$. Una carga desadaptada y un vidrio son el mismo problema.
+tiene la misma estructura de adaptación de impedancias que la reflexión en una
+interfaz óptica. No se obtiene sustituyendo directamente $n$ por $Z$: para los
+medios dieléctricos no magnéticos de la Unidad 2, la impedancia de onda es
+inversamente proporcional al índice, $\eta\propto 1/n$. En ambos casos la
+reflexión aparece por un desajuste en la frontera.

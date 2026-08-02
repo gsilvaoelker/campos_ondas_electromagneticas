@@ -7,9 +7,12 @@
 # jupyter-book 2.x es una herramienta distinta que no lee _config.yml ni
 # _toc.yml, por lo que la versión queda acotada a la serie 1.x.
 
-jupyter-book>=1.0.3,<2.0
-numpy>=1.24
-scipy>=1.10
-matplotlib>=3.7
+jupyter-book==1.0.4.post1
+# 0.15.4 mantiene compatibilidad con sphinx-book-theme 1.1 y su menú móvil.
+pydata-sphinx-theme==0.15.4
+numpy>=1.26
+scipy>=1.11
+matplotlib>=3.8
 sympy>=1.12
-pandas>=2.0
+pandas>=2.1
+pytest>=8,<10

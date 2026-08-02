@@ -10,14 +10,26 @@ from constantes_fisicas import VELOCIDAD_LUZ, IMPEDANCIA_VACIO
 # --------------------------------------------------------------------------
 # Guía de onda rectangular
 # --------------------------------------------------------------------------
-def frecuencia_de_corte(ancho, alto, m, n, velocidad=VELOCIDAD_LUZ):
+def frecuencia_de_corte(ancho, alto, m, n, velocidad=VELOCIDAD_LUZ, tipo_modo="TE"):
     """Frecuencia de corte del modo TE_mn o TM_mn [Hz].
 
         f_c = (u / 2) sqrt( (m/a)^2 + (n/b)^2 )
 
     Por debajo de esta frecuencia el modo no se propaga: se apaga
-    exponencialmente en vez de viajar.
+    exponencialmente en vez de viajar. TE_00 no existe; en modos TM ambos
+    índices deben ser positivos.
     """
+    tipo_modo = tipo_modo.upper()
+    if ancho <= 0.0 or alto <= 0.0 or velocidad <= 0.0:
+        raise ValueError("Las dimensiones y la velocidad deben ser positivas.")
+    if not isinstance(m, (int, np.integer)) or not isinstance(n, (int, np.integer)):
+        raise ValueError("Los índices modales m y n deben ser enteros.")
+    if m < 0 or n < 0 or (m == 0 and n == 0):
+        raise ValueError("Los índices modales deben ser no negativos y no ambos cero.")
+    if tipo_modo not in {"TE", "TM"}:
+        raise ValueError("tipo_modo debe ser 'TE' o 'TM'.")
+    if tipo_modo == "TM" and (m == 0 or n == 0):
+        raise ValueError("En un modo TM rectangular, m y n deben ser positivos.")
     termino_m = 0.0 if m == 0 else (m / ancho) ** 2
     termino_n = 0.0 if n == 0 else (n / alto) ** 2
     return velocidad / 2.0 * np.sqrt(termino_m + termino_n)
@@ -62,16 +74,22 @@ def velocidad_grupo_guia(frecuencia, frecuencia_corte, velocidad=VELOCIDAD_LUZ):
 # Dipolo hertziano (antena corta)
 # --------------------------------------------------------------------------
 def resistencia_radiacion_dipolo_corto(longitud_sobre_lambda):
-    """Resistencia de radiación de un dipolo corto [ohm]: R_r = 80 pi^2 (dl/lambda)^2.
+    """Resistencia del elemento hertziano ideal [ohm]: R_r = 80 pi^2 (dl/lambda)^2.
 
     Es la resistencia equivalente que representa la potencia que la antena
     entrega al espacio, no la que disipa en calor.
     """
+    if longitud_sobre_lambda < 0.0:
+        raise ValueError("La longitud normalizada no puede ser negativa.")
     return 80.0 * np.pi**2 * longitud_sobre_lambda**2
 
 
 def eficiencia_antena(resistencia_radiacion, resistencia_perdidas):
     """Eficiencia xi = R_r / (R_r + R_perdidas), adimensional entre 0 y 1."""
+    if resistencia_radiacion < 0.0 or resistencia_perdidas < 0.0:
+        raise ValueError("Las resistencias no pueden ser negativas.")
+    if resistencia_radiacion + resistencia_perdidas == 0.0:
+        raise ValueError("Al menos una resistencia debe ser positiva.")
     return resistencia_radiacion / (resistencia_radiacion + resistencia_perdidas)
 
 
@@ -93,8 +111,10 @@ def campo_dipolo_hertziano(corriente, longitud, distancia, angulo, numero_de_ond
 
     Decae como 1/r, no como 1/r^2: por eso la radiación llega lejos.
     """
-    return (impedancia * numero_de_onda * corriente * longitud
-            * np.sin(angulo) / (4.0 * np.pi * distancia))
+    if distancia <= 0.0:
+        raise ValueError("La distancia debe ser positiva.")
+    return (impedancia * numero_de_onda * abs(corriente) * abs(longitud)
+            * np.abs(np.sin(angulo)) / (4.0 * np.pi * distancia))
 
 
 def potencia_radiada_dipolo(corriente_pico, resistencia_radiacion):

@@ -28,8 +28,14 @@ def razon_onda_estacionaria(coeficiente):
     correcto y es un caso que aparece a menudo.
     """
     modulo = np.abs(coeficiente)
+    if np.any(modulo > 1.0 + 1.0e-12):
+        raise ValueError("La ROE pasiva requiere |Gamma| <= 1.")
     with np.errstate(divide="ignore", invalid="ignore"):
-        resultado = np.where(modulo >= 1.0, np.inf, (1.0 + modulo) / (1.0 - modulo))
+        resultado = np.where(
+            np.isclose(modulo, 1.0, rtol=0.0, atol=1.0e-12),
+            np.inf,
+            (1.0 + modulo) / (1.0 - modulo),
+        )
     return resultado if np.ndim(coeficiente) else float(resultado)
 
 
@@ -54,7 +60,11 @@ def longitud_electrica(longitud_sobre_lambda):
 
 
 def impedancia_cuarto_de_onda(impedancia_fuente, impedancia_carga):
-    """Impedancia del transformador de cuarto de onda: Z_t = sqrt(Z_S Z_L) [ohm]."""
+    """Z_t = sqrt(Z_S Z_L) [ohm] para resistencias reales y positivas."""
+    if not np.isreal(impedancia_fuente) or not np.isreal(impedancia_carga):
+        raise ValueError("El transformador simple requiere impedancias reales.")
+    if impedancia_fuente <= 0.0 or impedancia_carga <= 0.0:
+        raise ValueError("Las impedancias deben ser positivas.")
     return np.sqrt(impedancia_fuente * impedancia_carga)
 
 
